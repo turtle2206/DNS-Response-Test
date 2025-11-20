@@ -80,4 +80,9 @@ fi
 
 # Output average response time
 echo "--------------------------------------------------------------"
-printf "%-25s %-20s via %s\n" "Average Response Time:" "${AVERAGE_TIME} ms" "$DNS_SERVER"
+printf "%-25s %-20s via %s\n" "Average Query Response Time:" "${AVERAGE_TIME} ms" "$DNS_SERVER"
+echo "--------------------------------------------------------------"
+
+# Get ping time to the DNS server
+PING_TIME=$(ping -c 1 -W 1 $DNS_SERVER | grep 'time=' | awk -F'=' '{print $4}' | awk '{print $1}')
+echo "Ping time to DNS server ($DNS_SERVER): ${PING_TIME} ms"
