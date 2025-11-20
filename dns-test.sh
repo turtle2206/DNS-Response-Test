@@ -79,7 +79,6 @@ else
 fi
 
 # Output average response time
-echo "--------------------------------------------------------------"
 printf "%-25s %-20s via %s\n" "Average Query Response Time:" "${AVERAGE_TIME} ms" "$DNS_SERVER"
 echo "--------------------------------------------------------------"
 
